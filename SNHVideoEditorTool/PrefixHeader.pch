@@ -1,0 +1,38 @@
+//
+//  PrefixHeader.pch
+//  SNHVideoEditorTool
+//
+//  Created by huangshuni on 2017/11/23.
+//  Copyright © 2017年 huangshuni. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef DEBUG
+
+#define NSLog(FORMAT, ...) fprintf(stderr, "%s:%zd\t%s\n", [[[NSString stringWithUTF8String: __FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat: FORMAT, ## __VA_ARGS__] UTF8String]);
+
+#else
+
+#define NSLog(FORMAT, ...) nil
+
+#endif
+
+
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
+#define SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#define DocumentPath ([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject])
+
+#define RGBColor(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+
+#define RGB(r,g,b)      [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0f]
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height//获取屏幕高度
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width//获取屏幕宽度
+#import "MyUtility.h"
+#import "UIViewAdditions.h"
+#import "MBProgressHUD.h"
+
+#endif /* PrefixHeader_pch */
